@@ -1,36 +1,27 @@
+import os
+import pickle
+
 import tkinter as tk
 from tkinter import messagebox
+import face_recognition
 
 
 def get_button(window, text, color, command, fg='white'):
     button = tk.Button(
                         window,
                         text=text,
-                        activebackground='black',
-                        activeforeground='red',
+                        activebackground="black",
+                        activeforeground="white",
                         fg=fg,
                         bg=color,
                         command=command,
-                        height=6,
+                        height=2,
                         width=20,
-                        font=('helvetica bold' ,20)
-                        )
+                        font=('Helvetica bold', 20)
+                    )
+
     return button
 
-def get_buttontwo(window, text, color, command, fg='white'):
-    buttontwo = tk.Button(
-                        window,
-                        text=text,
-                        activebackground='black',
-                        activeforeground='red',
-                        fg=fg,
-                        bg=color,
-                        command=command,
-                        height=4,
-                        width=20,
-                        font=('helvetica bold', 20)
-                        )
-    return buttontwo
 
 def get_img_label(window):
     label = tk.Label(window)
@@ -39,15 +30,15 @@ def get_img_label(window):
 
 
 def get_text_label(window, text):
-    label = tk.Label(window, text=text, width=20)
-    label.config(font=("sans-serif", 15), justify="center")
+    label = tk.Label(window, text=text)
+    label.config(font=("sans-serif", 21), justify="left")
     return label
 
 
-def get_entry_text(window): #esse aqui é onde digita
+def get_entry_text(window):
     inputtxt = tk.Text(window,
-                       height=1,
-                       width=22, font=("Arial", 20))
+                       height=2,
+                       width=15, font=("Arial", 32))
     return inputtxt
 
 
@@ -81,3 +72,4 @@ def recognize(img, db_path):
         return db_dir[j - 1][:-7]
     else:
         return 'unknown_person'
+
